@@ -10,10 +10,14 @@ python = "^3.12"
 sqlalchemy = "^2.0.41"  # Или "^2.0.0", но не оба
 pydantic = "^2.11.4"     # Или "^2.0.0", но не оба
 fastapi = "^0.115.12"
-uvicorn = "^0.30.0"
+uvicorn = "^0.30.6"
 asyncpg = "^0.29.0"
-python-multipart = "^0.0.6"
+python-multipart = "0.0.19"
 python-dotenv = "^1.0.0"
+passlib = "^1.7.4"
+schemas = "^0.7.1"
+crud = "^0.1"
+python-jose = "^3.4.0"
 
 
 [build-system]
