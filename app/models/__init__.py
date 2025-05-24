@@ -12,10 +12,9 @@ from .rewards import Reward
 from .documents import Document
 from .curator_plans import CuratorPlan
 
-# Импортируем relationship после объявления всех моделей
-from sqlalchemy.orm import relationship
 
-# Устанавливаем relationships для всех моделей:
+# Устанавливаем relationships для всех моделей
+from sqlalchemy.orm import relationship
 
 # StudyProgram
 StudyProgram.groups = relationship("Group", back_populates="study_program")
@@ -38,8 +37,7 @@ Student.activities = relationship("Activity", back_populates="student")
 Student.financial_support = relationship("FinancialSupport", back_populates="student")
 Student.dormitory = relationship("Dormitory", back_populates="student")
 Student.rewards = relationship("Reward", back_populates="student")
-Student.documents = relationship("Document",
-    primaryjoin="and_(Document.entity_type=='student', Document.entity_id==Student.id)")
+
 
 # StudentHistory
 StudentHistory.student = relationship("Student", back_populates="history")
@@ -59,9 +57,6 @@ Dormitory.student = relationship("Student", back_populates="dormitory")
 
 # Reward
 Reward.student = relationship("Student", back_populates="rewards")
-
-# Document
-# Relationships для Document уже установлены в модели Student
 
 # CuratorPlan
 CuratorPlan.group = relationship("Group", back_populates="plans")

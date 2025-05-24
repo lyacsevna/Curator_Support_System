@@ -7,6 +7,7 @@ class CuratorPlan(Base):
 
     id = Column(Integer, primary_key=True)
     group_id = Column(Integer, ForeignKey("groups.id"), nullable=False)
+    curator_id = Column(Integer, ForeignKey('curators.id'))
     name = Column(String(100), nullable=False)
     event_datetime = Column(DateTime, nullable=False)
     location = Column(String(100))

@@ -15,7 +15,7 @@ def get_curator_by_email(db: Session, email: str):
     return db.query(Curator).filter(Curator.email == email).first()
 
 def create_curator(db: Session, curator: CuratorCreate):
-    hashed_password = pwd_context.hash(curator.password)
+    hashed_password = curator.password_hash
     db_curator = Curator(
         email=curator.email,
         last_name=curator.last_name,
