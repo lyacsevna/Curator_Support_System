@@ -1,7 +1,4 @@
 from fastapi import APIRouter
-
-api_router = APIRouter()
-
 # Перенесите импорты на уровень модуля, а не внутри функции
 from .study_programs import router as study_programs_router
 from .curators import router as curators_router
@@ -16,7 +13,10 @@ from .rewards import router as rewards_router
 from .documents import router as documents_router
 from .curator_plans import router as curator_plans_router
 
-# Подключаем роутеры напрямую, без функции
+
+api_router = APIRouter()
+
+
 api_router.include_router(study_programs_router, prefix="/study-programs", tags=["study-programs"])
 api_router.include_router(curators_router, prefix="/curators", tags=["curators"])
 api_router.include_router(groups_router, prefix="/groups", tags=["groups"])
